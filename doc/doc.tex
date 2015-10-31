@@ -7,12 +7,54 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 
-\title{Tietokantasovelluksen dokumentaatio}
+\title{Muistilistan dokumentaatio}
 
 \author{Ossi Räisä}
 
 \begin{document}
 
 \maketitle
+
+\section{Johdanto}
+
+Muistilistan on tarkoitus auttaa käyttääjää muistamaan kaikki hänelle annetut tehtävät.
+Jokainen tehtävä lisätään listaan. Tehtävään kuuluu lyhyt kuvaus, tärkeys, ja mahdollisesti
+deadline. Tehtäville voi myös antaa tägin. Tägit periytyvät, eli jokaisella tägillä voi olla
+yksi tai useampia vanhempia. Käyttäjä voi hakea omia tehtäviään tägien ja tärkeyden perusteella
+ja järjestää tuloksia tärkeyden perusteella. Tehtävän voi poistaa tai merkitä suoritetuksi.
+Tehtäviä ja tägejä voi myös muokata jälkeenpäin. Käyttäjien täytyy kirjautua sisään käyttätunnuksella
+ja salasanalla.
+
+Muistilista pyörii tietojenkäsittelytieteen laitoksen users-palvelimella ja käyttää php:tä
+palvelimen logiikan toteuttamiseen. Käyttöliittymä käyttää javascriptiä, jos se on tarpeen.
+Tehtävät ja käyttäjien tiedot tallennetaan PostgreSQL-tietokantaan.
+
+\newpage
+
+\section{Käyttötapaukset}
+
+\begin{figure}[h]
+  \caption{Käyttötapauskaavio}
+  \centering
+  \includegraphics[scale=0.7]{kayttotapauskaavio}
+\end{figure}
+
+\subsection{Käyttötapauksien kuvauksia}
+\begin{description}
+  \item[Tehtävän luonti] \hfill \\
+  Tehtävää luodessa käyttäjä voi asettaa tehtävälle tärkeyden, antaa kuvauksen,
+  asettaa deadlinen ja antaa tehtävälle tägin.
+  \item[Tehtävien listaus] \hfill \\
+  Käyttäjä voi listata kaikki tehtävät tai rajata listausta tehtävien tärkeyden,
+  deadlinen (kaikki joissa deadline ennen), ja tägien perusteella (kaikki joilla tietty
+  tägi tai jokin sen lapsista).
+  \item[Tägin luonti] \hfill \\
+  Tägin voi luoda uutta tehtävää luodessa, jos uudelle tägille on tarvetta tai
+  pääsivulta. Tägiä luodessa käyttäjä antaa nimen sekä mahdolliset vanhemmat.
+  Tägiä luodessa on myös mahdollista luoda uusi vanhempi.
+  \item[Muita käyttötapauksia] \hfill \\
+  Tehtävää tai tägiä muokkaamaan pääsee listaussivulta ja kaikkea, mitä luodessa
+  voi asettaa voi muokata. Poisto tapahtuu muokkaussivulta.
+\end{description}
 
 \end{document}
