@@ -57,4 +57,51 @@ Tehtävät ja käyttäjien tiedot tallennetaan PostgreSQL-tietokantaan.
   voi asettaa voi muokata. Poisto tapahtuu muokkaussivulta.
 \end{description}
 
+\section{Järjestelmän tietosisältö}
+
+\begin{figure}[h]
+  \caption{Käsitekaavio}
+  \centering
+  \includegraphics[scale=1.0]{kasitekaavio}
+\end{figure}
+
+\subsection{User}
+\begin{tabular}{l | l | l}
+  Attribuutti & Arvojoukko \\ \hline
+  username & merkkijono (50 merkkiä) \\ \hline
+  password & merkkijono (50 merkkiä) \\
+\end{tabular}
+\\
+User-tauluun tallennetaan jokaisen käyttäjän kirjautumistiedot
+
+\subsection{Assingment}
+\begin{tabular}{l | l | l}
+  Attribuutti & Arvojoukko \\ \hline
+  name & merkkijono (50 merkkiä) \\ \hline
+  importance & kokonaisluku \\ \hline
+  deadline & päivämäärä ja aika \\ \hline
+  description & merkkijono (500 merkkiä) \\
+\end{tabular}
+\\
+Assingment-tauluun tallennetaan tehtävät. Kaikilla tehtävillä on omistaja, joka
+on tehtävän luonut käyttäjä. Tehtävillä voi myös olla yksi tägi.
+Deadline-sarake käyttää SQL:n datetime-tyyppiä.
+
+\subsection{Tag}
+\begin{tabular}{l | l | l}
+  Attribuutti & Arvojoukko \\ \hline
+  name & merkkijono (50 merkkiä) \\
+\end{tabular}
+\\
+Tägeillä on nimi ja niillä voi myös olla ylätägejä. Tägin perusteella haettaessa
+myös tägin lapsilla merkatut tehtävät sisältyvät tuloksiin.
+
+\section{Relaatiotietokantakaavio}
+
+\begin{figure}[h]
+  \caption{Tietokantakaavio}
+  \centering
+  \includegraphics[scale=0.7]{tietokantakaavio}
+\end{figure}
+
 \end{document}
