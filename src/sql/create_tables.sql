@@ -1,29 +1,29 @@
-CREATE TABLE User(
-  id integer PRIMARY KEY,
-  username varchar(50),
-  password varchar(50)
+CREATE TABLE Luser(
+  id serial PRIMARY KEY,
+  username varchar(50) NOT NULL,
+  password varchar(50) NOT NULL
 );
 
-CREATE TABLE Assingment(
-  id integer PRIMARY KEY,
+CREATE TABLE Tag(
+  id serial PRIMARY KEY,
+  name varchar(50)
+);
+
+CREATE TABLE Assignment(
+  id serial PRIMARY KEY,
   name varchar(50),
   importance integer,
   deadline timestamp,
   description varchar(500),
-  owner integer,
+  owner integer NOT NULL,
   tag integer,
-  FOREIGN KEY(owner) REFERENCES User(id),
+  FOREIGN KEY(owner) REFERENCES Luser(id),
   FOREIGN KEY(tag) REFERENCES Tag(id)
 );
 
-CREATE TABLE Tag(
-  id integer PRIMARY KEY,
-  name varchar(50)
-);
-
 CREATE TABLE TagParent(
-  parent integer,
-  child integer,
+  parent integer NOT NULL,
+  child integer NOT NULL,
   FOREIGN KEY(parent) REFERENCES Tag(id),
   FOREIGN KEY(child) REFERENCES Tag(id)
 );

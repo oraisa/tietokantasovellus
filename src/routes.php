@@ -1,17 +1,21 @@
 <?php
+require(BASE_PATH . '/src/controllers/assignmentcontroller.php');
 $routes->get('/', function() {
-  //echo "Hello World";
   require("src/views/login.php");
 });
 
-$routes->get('/notes', function() {
-  require("src/views/notes.php");
+$routes->get('/tehtava/lista', function() {
+  AssignmentController::index();
 });
-/*
-$routes->get('/note', function() {
-  require("src/views/note.php");
+
+$routes->post('/tehtava', function(){
+  AssignmentController::store();
 });
-*/
-$routes->get('/newnote', function() {
-  require("src/views/newnote.php");
+
+$routes->get('/tehtava/uusi', function() {
+  require("src/views/newassignment.php");
+});
+
+$routes->get('/tehtava/:id', function($id){
+  AssignmentController::modify($id);
 });
