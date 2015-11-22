@@ -6,32 +6,42 @@
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
-  <form class='w3-form'>
+  <?php
+	foreach($errors as $error){
+		echo "<div class='w3-container w3-round-large w3-red' style='margin:1mm;'>" . $error . "</div>";
+	}
+	?>
+  <?php echo "<form class='w3-form' method='post' action='/muistilista/tehtava/" . $assignment->id . "/paivita'>"; ?>
     <div class='w3-input-group'>
       <label>Nimi</label><br>
-      <?php echo "<input class='w3-input' type='text' value='" . $assignment->name . "'/>"; ?>
+      <?php echo "<input class='w3-input' type='text' name='name' value='" .
+        htmlspecialchars($assignment->name, ENT_QUOTES, 'UTF-8') . "'/>"; ?>
     </div>
     <div class='w3-input-group'>
       <label>Tärkeys</label><br>
-      <?php echo "<input class='w3-input' type='number' value='" . $assignment->importance . "'/> "; ?>
+      <?php echo "<input class='w3-input' type='number' name='importance' value='" .
+        htmlspecialchars($assignment->importance, ENT_QUOTES, 'UTF-8') . "'/> "; ?>
     </div>
     <div class='w3-input-group'>
       <label>Deadline</label><br>
       <!-- Change the space in '2000-01-01 13:00:00' to T for datetime-local-->
-      <?php echo "<input type='datetime-local' value='" . substr_replace($assignment->deadline, "T", 10, 1) . "'/> "; ?>
+      <?php echo "<input type='datetime-local' name='deadline' value='" .
+        htmlspecialchars(substr_replace($assignment->deadline, "T", 10, 1), ENT_QUOTES, 'UTF-8') . "'/> "; ?>
     </div>
     <div class='w3-input-group'>
       <label>Kuvaus</label><br>
-      <?php echo "<textarea class='w3-input' rows='3'>" . $assignment->description . "</textarea> "; ?>
+      <?php echo "<textarea class='w3-input' name='description' rows='3'>" .
+        htmlspecialchars($assignment->description, ENT_QUOTES, 'UTF-8') . "</textarea> "; ?>
     </div>
     <div class='w3-input-group'>
       <label>Tägi</label><br>
-      <select>
+      <select name='tag'>
 				<?php
 					require_once(BASE_PATH . '/src/models/tag.php');
 					$tags = Tag::all();
 					foreach($tags as $tag){
-						echo '<option value=\'' . $tag->id . '\'>' . $tag->name . '</option>';
+						echo '<option value=\'' . $tag->id . '\'>' .
+              htmlspecialchars($tag->name, ENT_QUOTES, 'UTF-8') . '</option>';
 					}
 				?>
       </select>

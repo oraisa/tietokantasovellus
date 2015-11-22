@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='fi'>
 <head>
-	<title>Tietokantasovellus</title>
+	<title>Muistilista</title>
 	<meta charset='utf-8'/>
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
@@ -21,15 +21,18 @@
 			echo "<div class='w3-col l" . 12 / $rowSize . "'>";
 				echo "<div class='w3-card-4' style='margin: 2mm;'>";
 					echo "<header class='w3-container'>";
-						echo "<h1>" . $assignment->name . "</h1>";
+						echo "<h1>" . htmlspecialchars($assignment->name, ENT_QUOTES, 'UTF-8') . "</h1>";
 					echo "</header>";
 					echo "<div class='w3-container'>";
-						echo "Tärkeys: " . $assignment->importance . "<br>";
-						echo "Deadline: " . $assignment->deadline;
-						echo "<p>" . $assignment->description . "</p>";
+						echo "Tärkeys: " . htmlspecialchars($assignment->importance, ENT_QUOTES, 'UTF-8') . "<br>";
+						echo "Deadline: " . htmlspecialchars($assignment->deadline, ENT_QUOTES, 'UTF-8');
+						echo "<p>" . htmlspecialchars($assignment->description, ENT_QUOTES, 'UTF-8') . "</p>";
 						echo "Tag coming soon";
 						echo "<form method='get' action='/muistilista/tehtava/" . $assignment->id . "'>";
-							echo "<button class='w3-btn w3-round-xlarge w3-small' style='float: right; margin: 2mm 0mm;'>Muokkaa</button>";
+							echo "<button class='w3-btn w3-round-xlarge w3-small' style='float: right; margin: 2mm 1mm;'>Muokkaa</button>";
+						echo "</form>";
+						echo "<form method='post' action='/muistilista/tehtava/" . $assignment->id . "/poista'>";
+							echo "<button class='w3-btn w3-round-xlarge w3-small w3-red' style='float: right; margin: 2mm 1mm;'>Poista</button>";
 						echo "</form>";
 					echo "</div>";
 				echo"</div>";

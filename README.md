@@ -5,4 +5,7 @@
 * [Sovellus (kirjautuminen)](http://oraisa.users.cs.helsinki.fi/muistilista)
 * [Tehtävälistaus](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/lista)
 * [Uuden tehtävän luonti](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/uusi)
-* [Tehtävän katsominen (ja myöhemmin muokkaus)](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/1)
+* [Tehtävän katsominen ja muokkaus)](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/1)
+* Testikäyttäjät
+  * testi, salasana 1234
+  * testi2, salasana password
