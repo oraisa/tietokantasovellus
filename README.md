@@ -6,6 +6,8 @@
 * [Tehtävälistaus](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/lista)
 * [Uuden tehtävän luonti](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/uusi)
 * [Tehtävän katsominen ja muokkaus)](http://oraisa.users.cs.helsinki.fi/muistilista/tehtava/1)
+* [(Tägien listaus ja muokkaus)](http://oraisa.users.cs.helsinki.fi/muistilista/tagi/lista)
+  * Koska tägeissä ei ole suurta määrää tietoa, niille ei ole erillistä muokkaus- ja katsomissivua.
 * Testikäyttäjät
   * testi, salasana 1234
   * testi2, salasana password

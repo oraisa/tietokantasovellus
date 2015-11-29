@@ -1,5 +1,5 @@
 INSERT INTO Luser (id, username, password) VALUES (1, 'testi', '1234');
-INSERT INTO Luser (id, username, password) VALUES (2, 'testi1', 'password');
+INSERT INTO Luser (id, username, password) VALUES (2, 'testi2', 'password');
 
 INSERT INTO Tag(id, name) VALUES(1, 'Koulu');
 INSERT INTO Tag(id, name) VALUES(2, 'Kotityö');
