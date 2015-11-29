@@ -1,3 +1,4 @@
 *.aux
 *.log
+doc.out
 .DS_Store

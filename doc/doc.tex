@@ -105,7 +105,21 @@ myös tägin lapsilla merkatut tehtävät sisältyvät tuloksiin.
   \includegraphics[scale=0.7]{tietokantakaavio}
 \end{figure}
 
-\newpage
+\section{Järjestelmän yleisrakenne}
+Muistilista on tehty MVC-mallin mukaisesti. Mallit sijaitsevat kansiossa src/models,
+näkymät kansiossa src/views ja kontrollerit kansiossa src/controllers. Lisäksi src/routes.php
+sisältää sovelluksen reitit ja src/db.php sisältää tietokannan avaamisen. Sovelluksen käyttämät
+kirjastot ovat lib-kansiossa.
+
+\section{Käyttöliittynä ja järjestelmän komponentit}
+
+\begin{figure}[h]
+  \caption{Käyttöliittymä}
+  \centering
+  \includegraphics[scale=0.6]{kayttoliittyma}
+\end{figure}
+Kaikki sivut kirjautumista ja rekisteröitymistä lukuun ottamatta vaativat kirjautumisen.
+
 \section{Käynnistys- ja käyttöohje}
 
 \href{https://oraisa.users.cs.helsinki.fi/muistilista}{Kirjautumissivu} \\
