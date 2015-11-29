@@ -1,6 +1,7 @@
 <?php
-require(BASE_PATH . '/src/controllers/assignmentcontroller.php');
-require(BASE_PATH . '/src/controllers/usercontroller.php');
+require_once 'src/controllers/assignmentcontroller.php';
+require_once 'src/controllers/usercontroller.php';
+require_once 'src/controllers/tagcontroller.php';
 $routes->get('/', function() {
   AssignmentController::index();
 });
@@ -19,6 +20,10 @@ $routes->post('/logout', function() {
 
 $routes->get('/tehtava/lista', function() {
   AssignmentController::index();
+});
+
+$routes->get('/tagi/lista', function() {
+  TagController::index();
 });
 
 $routes->post('/tehtava', function(){

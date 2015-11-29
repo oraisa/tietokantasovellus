@@ -6,7 +6,9 @@ CREATE TABLE Luser(
 
 CREATE TABLE Tag(
   id serial PRIMARY KEY,
+  owner integer,
   name varchar(50)
+  FOREIGN KEY(owner) REFERENCES Luser(id)
 );
 
 CREATE TABLE Assignment(

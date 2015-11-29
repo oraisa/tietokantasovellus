@@ -8,9 +8,9 @@ class Tag {
     $this->id = $id;
   }
 
-  public static function all(){
-    $query = DB::connection()->prepare('SELECT * FROM Tag');
-    $query->execute();
+  public static function all($user){
+    $query = DB::connection()->prepare('SELECT * FROM Tag WHERE owner = :owner ORDER BY id ASC');
+    $query->execute(array('owner' => $user->id));
     $rows = $query->fetchAll();
     $tags = array();
 

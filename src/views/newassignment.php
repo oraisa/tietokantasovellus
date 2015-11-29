@@ -6,11 +6,7 @@
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body>
-  <?php
-	foreach($errors as $error){
-		echo "<div class='w3-container w3-round-large w3-red' style='margin:1mm;'>" . $error . "</div>";
-	}
-	?>
+  <?php include 'src/views/templates/errorlist.php'; ?>
   <form class='w3-form' method='post' action='/muistilista/tehtava'>
     <div class='w3-input-group'>
       <label>Nimi</label><br>
@@ -38,7 +34,7 @@
       <select name='tag'>
 				<?php
 					require_once(BASE_PATH . '/src/models/tag.php');
-					$tags = Tag::all();
+					$tags = Tag::all($user);
 					foreach($tags as $tag){
 						echo '<option value=\'' . $tag->id . '\'>' .
               htmlspecialchars($tag->name, ENT_QUOTES, 'UTF-8') . '</option>';
