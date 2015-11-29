@@ -10,7 +10,9 @@
 		<form method='get' action='/muistilista/tehtava/uusi' style='display: inline;'>
 			<button class='w3-btn w3-round-xlarge w3-green w3-large' style='margin: 3mm 0mm;'>Uusi tehtävä</button>
 		</form>
-    <button class='w3-btn w3-round-xlarge w3-large' style='float: right; margin: 3mm 0mm;''>Kirjaudu ulos</button>
+		<form method='post' action='/muistilista/logout' style='display: inline;'>
+			<button class='w3-btn w3-round-xlarge w3-large' style='float: right; margin: 3mm 0mm;'>Kirjaudu ulos</button>
+		</form>
 		<?php
 		$i = 0;
 		$rowSize = 4;

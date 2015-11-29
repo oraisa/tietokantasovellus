@@ -13,6 +13,10 @@ $routes->post('/login', function() {
   UserController::login();
 });
 
+$routes->post('/logout', function() {
+  UserController::logout();
+});
+
 $routes->get('/tehtava/lista', function() {
   AssignmentController::index();
 });
