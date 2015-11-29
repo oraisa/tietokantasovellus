@@ -1,22 +1,24 @@
 <?php
 require_once 'src/db.php';
 require_once 'src/models/basemodel.php';
+require_once 'src/models/tag.php';
 class Assignment extends BaseModel{
   public $id, $name, $importance, $deadline, $description, $owner, $tag;
 
   public function __construct($id, $name, $importance, $deadline, $description, $owner, $tag){
     $this->validators = array("validate_name", "validate_deadline", "validate_importance", "validate_description");
+
     $this->name = $name;
     $this->id = $id;
     $this->importance = $importance;
     $this->deadline = $deadline;
     $this->description = $description;
     $this->owner = $owner;
-    $this->tag = $tag;
+    $this->tag = Tag::findById($tag);
   }
 
   public static function all($user){
-    $query = DB::connection()->prepare('SELECT * FROM Assignment WHERE owner = :id');
+    $query = DB::connection()->prepare('SELECT * FROM Assignment WHERE owner = :id ORDER BY id ASC');
     $query->execute(array('id' => $user->id));
     $rows = $query->fetchAll();
     $assignments = array();
@@ -45,7 +47,7 @@ class Assignment extends BaseModel{
     $query = DB::connection()->prepare('INSERT INTO Assignment(name, importance, deadline, description, owner, tag)' .
       'VALUES(:name, :importance, :deadline, :description, :owner, :tag) RETURNING id;');
     $query->execute(array('name' => $this->name, 'importance' => $this->importance, 'deadline' => $this->deadline,
-      'description' => $this->description, 'owner' => $this->owner, 'tag' => $this->tag));
+      'description' => $this->description, 'owner' => $this->owner, 'tag' => $this->tag->id));
     $row = $query->fetch();
     $this->id = $row['id'];
   }
@@ -63,10 +65,10 @@ class Assignment extends BaseModel{
       return;
     }
     $query = DB::connection()->prepare('UPDATE Assignment ' .
-      'SET name = :name, importance = :importance, deadline = :deadline, description = :description ' .
+      'SET name = :name, importance = :importance, deadline = :deadline, description = :description, tag = :tag ' .
       'WHERE id = :id');
     $query->execute(array('name' => $this->name, 'importance' => $this->importance, 'deadline' => $this->deadline,
-      'description' => $this->description, 'id' => $this->id));
+      'description' => $this->description, 'tag' => $this->tag->id, 'id' => $this->id));
   }
 
   public function validate_name(){
@@ -80,6 +82,7 @@ class Assignment extends BaseModel{
   }
   public function validate_deadline(){
     $errors = array();
+    //Try to convert deadline to a datetime
     if(!strtotime($this->deadline)){
       $errors[] = "Deadlinin täytyy olla päivämäärä.";
     }
