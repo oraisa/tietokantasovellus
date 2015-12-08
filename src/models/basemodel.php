@@ -18,8 +18,10 @@ class BaseModel {
 
   public function validate(){
     $errors = array();
-    foreach($this->validators as $validator){
-      $errors = array_merge($errors, $this->{$validator}());
+    if(isset($validators)){
+      foreach($this->validators as $validator){
+        $errors = array_merge($errors, $this->{$validator}());
+      }
     }
     return $errors;
   }
