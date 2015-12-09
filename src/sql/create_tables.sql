@@ -20,7 +20,7 @@ CREATE TABLE Assignment(
   owner integer NOT NULL,
   tag integer,
   FOREIGN KEY(owner) REFERENCES Luser(id),
-  FOREIGN KEY(tag) REFERENCES Tag(id)
+  FOREIGN KEY(tag) REFERENCES Tag(id) ON DELETE SET NULL
 );
 
 CREATE TABLE TagParent(

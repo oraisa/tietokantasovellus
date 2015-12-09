@@ -36,7 +36,8 @@
 					require_once(BASE_PATH . '/src/models/tag.php');
 					$tags = Tag::all($user);
 					foreach($tags as $tag){
-						echo "<option value='" . $tag->id . "' " . ($tag->id == $assignment->tag->id ? "selected" : "") . ">" .
+            $tagId = $assignment->tag != null ? $assingment->tag->id : -1;
+						echo "<option value='" . $tag->id . "' " . ($tag->id == $tagId ? "selected" : "") . ">" .
               htmlspecialchars($tag->name, ENT_QUOTES, 'UTF-8') . '</option>';
 					}
 				?>

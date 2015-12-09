@@ -30,8 +30,9 @@
 						echo "Tärkeys: " . htmlspecialchars($assignment->importance, ENT_QUOTES, 'UTF-8') . "<br>";
 						echo "Deadline: " . htmlspecialchars($assignment->deadline, ENT_QUOTES, 'UTF-8');
 						echo "<p>" . htmlspecialchars($assignment->description, ENT_QUOTES, 'UTF-8') . "</p>";
+						$tagName = $assignment->tag != null ? $assignment->tag->name : "Ei tägiä";
 						echo "<button class='w3-btn w3-round-xlarge w3-tiny'>" .
-							htmlspecialchars($assignment->tag->name, ENT_QUOTES, 'UTF-8') .
+							htmlspecialchars($tagName, ENT_QUOTES, 'UTF-8') .
 							"</button>";
 						echo "<form method='get' action='/muistilista/tehtava/" . $assignment->id . "'>";
 							echo "<button class='w3-btn w3-round-xlarge w3-small' style='float: right; margin: 2mm 1mm;'>Muokkaa</button>";
