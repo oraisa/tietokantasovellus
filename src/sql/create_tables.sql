@@ -26,6 +26,6 @@ CREATE TABLE Assignment(
 CREATE TABLE TagParent(
   parent integer NOT NULL,
   child integer NOT NULL,
-  FOREIGN KEY(parent) REFERENCES Tag(id),
-  FOREIGN KEY(child) REFERENCES Tag(id)
+  FOREIGN KEY(parent) REFERENCES Tag(id) ON DELETE CASCADE,
+  FOREIGN KEY(child) REFERENCES Tag(id) ON DELETE CASCADE
 );

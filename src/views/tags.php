@@ -33,13 +33,17 @@
               echo "<input class='w3-xlarge' name='name' type='text' value='" . htmlspecialchars($tag->name, ENT_QUOTES, 'UTF-8') . "'/>";
             echo "</header>";
             echo "<div class='w3-container'>";
-              echo "Parent tags:";
-              echo "<select multiple name='parents'>";
+              echo "<div>";
+              echo "<p>Parent tags:</p>";
+              echo "<select multiple name='parents[]'>";
               foreach($tags as $option){
-                if($tag->id != $option->id){
-                  echo "<option value='" . $option->id . "'>" . $option->name . "</option>";
+                if($tag->id != $option->id && $option->id != -1){
+                  $isSelected = $tag->isParent($option) ? "selected" : "";
+                  echo "<option value='" . $option->id . "'" . $isSelected .">" . $option->name . "</option>";
                 }
               }
+              echo "</select>";
+              echo "</div>";
               $text = $tag->id == -1 ? 'Luo uusi tagi' : 'Tallenna';
               echo "<input type='submit' class='w3-btn w3-round-xlarge w3-small w3-green' style='float: right; margin: 2mm 1mm;' value='" . $text . "'/>";
               if($tag->id != -1){

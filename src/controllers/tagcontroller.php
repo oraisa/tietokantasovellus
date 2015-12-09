@@ -11,13 +11,14 @@ class TagController extends BaseController {
   public static function store(){
     $user = self::get_user_logged_in();
     $params = $_POST;
-    $tag = new Tag(-1, $params['name'], $user->id);
+    $tag = new Tag(-1, $params['name'], $user->id, $params['parents']);
     $errors = $tag->validate();
     if(count($errors) == 0){
       $tag->save();
       header('Location: /muistilista/tagi/lista');
       exit();
     } else {
+      $tags = Tag::all($user);
       include 'src/views/tags.php';
     }
   }
@@ -25,13 +26,14 @@ class TagController extends BaseController {
   public static function update($id){
     $user = self::get_user_logged_in();
     $params = $_POST;
-    $assignment = new Tag($id, $params['name'], $user->id);
+    $assignment = new Tag($id, $params['name'], $user->id, $params['parents']);
     $errors = $assignment->validate();
     if(count($errors) == 0){
       $assignment->update($user);
       header('Location: /muistilista/tagi/lista');
       exit();
     } else {
+      $tags = Tag::all($user);
       include('src/views/tags.php');
     }
   }

@@ -18,7 +18,7 @@ class BaseModel {
 
   public function validate(){
     $errors = array();
-    if(isset($validators)){
+    if(isset($this->validators)){
       foreach($this->validators as $validator){
         $errors = array_merge($errors, $this->{$validator}());
       }
