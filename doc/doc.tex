@@ -122,6 +122,14 @@ kirjastot ovat lib-kansiossa.
 \end{figure}
 Kaikki sivut kirjautumista ja rekisteröitymistä lukuun ottamatta vaativat kirjautumisen.
 
+\section{Asennusohje}
+Muistilistan voi asentaa suorittamalla deploy.sh-tiedoston, kunhan deploy.sh-tiedostoon on laitettu
+kohdepalvelimen osoite oikein. Sovelluksen täytyy olla muitilista-nimisessä kansiossa. Käytettäessä jotain
+muuta tietokantaa kuin PostgreSQL:ä db.php-tiedostoa täytyy muokata niin, että tietokantayhteys muodostetaan
+oikeaan tietokannanhallintajärjestelmään. Tietokanta täytyy alustaa suorittamalla src/sql-kansiossa olevat
+tiedostot valitulla tietokannanhallintajärjestelmällä. add\_test\_data.sql-tiedostoa ei tarvitse suorittaa, jos
+testidataa ei haluta lisätä tietokantaan.
+
 \section{Käynnistys- ja käyttöohje}
 
 \href{https://oraisa.users.cs.helsinki.fi/muistilista}{Kirjautumissivu} \\
