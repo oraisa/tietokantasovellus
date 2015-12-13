@@ -19,6 +19,14 @@ $routes->post('/logout', function() {
   UserController::logout();
 });
 
+$routes->get('/register', function() {
+  UserController::show_register();
+});
+
+$routes->post('/register', function() {
+  UserController::register();
+});
+
 
 $routes->get('/tagi/lista', function() {
   TagController::index();

@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang='fi'>
-<head>
-  <meta charset='utf-8'/>
-  <title>Muistilista</title>
-	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-</head>
+<?php include 'src/views/templates/header.php'; ?>
 <body>
   <?php include 'src/views/templates/errorlist.php'; ?>
   <form class='w3-form' method='post' action='/muistilista/tehtava'>
@@ -41,7 +35,6 @@
 					}
 				?>
       </select>
-      <button class='w3-btn w3-round-xlarge w3-green w3-small'>Luo uusi tägi</button>
     </div>
     <input class='w3-btn w3-round-xlarge w3-green w3-large' type='submit' value='Luo tehtävä'/>
   </form>

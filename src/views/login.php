@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang='fi'>
-<head>
-	<title>Muistilista</title>
-	<meta charset='utf-8'/>
-	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-</head>
+<?php include 'src/views/templates/header.php'; ?>
 <body>
 	<div class='w3-row'>
 		<form action='/muistilista/login' method="post" class='w3-form w3-border w3-third'>

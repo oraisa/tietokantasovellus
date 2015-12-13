@@ -10,7 +10,6 @@ class AssignmentController extends BaseController{
 
   public static function new_assignment(){
     $user = self::get_user_logged_in();
-    $errors = array();
     $assignment = new Assignment(-1, '', '', '', '', -1, 1);
     include('src/views/newassignment.php');
   }

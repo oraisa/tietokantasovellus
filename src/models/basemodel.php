@@ -16,6 +16,14 @@ class BaseModel {
     return $errors;
   }
 
+  public function validate_string_min_length($value, $min_length, $msg){
+    $errors = array();
+    if(strlen($value) < $min_length){
+      $errors[] = $msg;
+    }
+    return $errors;
+  }
+
   public function validate(){
     $errors = array();
     if(isset($this->validators)){
